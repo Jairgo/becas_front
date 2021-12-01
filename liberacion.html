@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Tables - SB Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+        crossorigin="anonymous"></script>
+</head>
+
+<body class="sb-nav-fixed">    
+    <!-- Modal -->
+    <div class="modal fade" id="liberacionModal" tabindex="-1" aria-labelledby="liberacionModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="liberacionModalLabel">Andrea Gonzalez Perez - Modalidad por horas</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <p>El alumno terminó las horas de servicio o proyecto acordado.</p>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="optionsPreg1" id="radio1a" value="option1">
+                            <label class="form-check-label" for="radio1a">SI</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="optionsPreg1" id="radio1b" value="option2">
+                            <label class="form-check-label" for="radio1b">NO</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <p>Evalúe el desempeño del alumno en el servicio.</p>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="optionsPreg2" id="radio2a" value="option1">
+                            <label class="form-check-label" for="radio2a">Muy Malo</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="optionsPreg2" id="radio2b" value="option2">
+                            <label class="form-check-label" for="radio2b">Malo</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="optionsPreg2" id="radio2c" value="option3">
+                            <label class="form-check-label" for="radio2c">Regular</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="optionsPreg2" id="radio2d" value="option4">
+                            <label class="form-check-label" for="radio2d">Bueno</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="optionsPreg2" id="radio2e" value="option5">
+                            <label class="form-check-label" for="radio2e">Excelente</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <p>Al momento, usted recomienda.</p>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="optionsPreg3" id="radio3a" value="option1">
+                            <label class="form-check-label" for="radio3a">Conservar el % de beca</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="optionsPreg3" id="radio3b" value="option2">
+                            <label class="form-check-label" for="radio3b">Disminución del % de beca</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="optionsPreg3" id="radio3c" value="option3">
+                            <label class="form-check-label" for="radio3c">Pérdida de beca</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <p>Eliga el criterio de liberación.</p>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Seleccion de las opciones</option>
+                            <option value="NoLiberacion">A) No liberación</option>
+                            <option value="LiberacionLlana">B) Liberación Llana</option>
+                            <option value="LiberacionRecomendacion">C) Liberación con recomendación</option>
+                            <option value="LiberaciónExcelencia">D) Liberación con excelencia</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Ecriba comentarios generales sobre el desempeño del alumno y retroalimentación general.
+                            <br> Esta información no la verá el alumno</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-success">Guardar cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="index.html">Start Bootstrap</a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+                class="fas fa-bars"></i></button>
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..."
+                    aria-describedby="btnNavbarSearch" />
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
+                        class="fas fa-search"></i></button>
+            </div>
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#!">Settings</a></li>
+                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                    <li>
+                        <hr class="dropdown-divider" />
+                    </li>
+                    <li><a class="dropdown-item" href="#!">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">Núcleo</div>
+                        <a class="nav-link" href="/jefe_becario.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Dashboard
+                        </a>
+                        <a class="nav-link" href="/liberacion.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                            Liberación de becarios
+                        </a>
+                        <a class="nav-link" href="/perfil_alumno_horas.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user-clock"></i></div>
+                            Alumno x horas
+                        </a>
+                        <a class="nav-link" href="/perfil_alumno.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user-graduate"></i></div>
+                            Alumno x proyecto
+                        </a>
+                        
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">Sesión iniciada como:</div>
+                    Jefe de becario
+                </div>
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <h1 class="mt-4">Liberación de servicio: Enero - Mayo 2022</h1>
+                    <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                        <li class="breadcrumb-item active">Liberación de servicio de becario</li>
+                    </ol>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <p class="mb-0">Recuerda los siguientes criterios para liberar el servicio a los alumnos:
+                            </p><br>
+                            <p class="mb-0"><b>A) No liberación</b></p>
+                            <p class="mb-0"><b>B) Liberación Llana: </b>Se realizó lo que se tenía que hacer</p>
+                            <p class="mb-0"><b>C) Liberación con recomendación: </b>Superó las expectativas y muestra
+                                mayor competencia en un área o función particular</p>
+                            <p class="mb-0"><b>D) Liberación con excelencia: </b>Su desempeño fue sobresaliente a nivel
+                                personal y se puede reconocer / medir el impacto del proyecto debido a una mejora o el
+                                impacto de expansión.</p>
+                        </div>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-table me-1"></i>
+                            DataTable Example
+                        </div>
+                        <div class="card-body">
+                            <table id="datatablesSimple" class=".table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre completo</th>
+                                        <th>Posición</th>
+                                        <th>Escuela</th>
+                                        <th>Semestre</th>
+                                        <th>Concluyó</th>
+                                        <th>Opciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Tiger Nixon</td>
+                                        <td>System Architect</td>
+                                        <td>Edinburgh</td>
+                                        <td>61</td>
+                                        <td>SI</td>
+                                        <td>
+                                            <button class="btn btn-primary"><i class="fas fa-info-circle "></i> Info</button>
+                                            <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#liberacionModal" type="button"><i class="fas fa-user-check "></i> Liberar</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Garrett Winters</td>
+                                        <td>Accountant</td>
+                                        <td>Tokyo</td>
+                                        <td>63</td>
+                                        <td>NO</td>
+                                        <td>
+                                            <button class="btn btn-primary"><i class="fas fa-info-circle "></i> Info</button>
+                                            <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#liberacionModal" type="button"><i class="fas fa-user-check "></i> Liberar</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ashton Cox</td>
+                                        <td>Junior Technical Author</td>
+                                        <td>San Francisco</td>
+                                        <td>66</td>
+                                        <td>SI</td>
+                                        <td>
+                                            <button class="btn btn-primary"><i class="fas fa-info-circle "></i> Info</button>
+                                            <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#liberacionModal" type="button"><i class="fas fa-user-check "></i> Liberar</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cedric Kelly</td>
+                                        <td>Senior Javascript Developer</td>
+                                        <td>Edinburgh</td>
+                                        <td>22</td>
+                                        <td>NO</td>
+                                        <td>
+                                            <button class="btn btn-primary"><i class="fas fa-info-circle "></i> Info</button>
+                                            <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#liberacionModal" type="button"><i class="fas fa-user-check "></i> Liberar</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Airi Satou</td>
+                                        <td>Accountant</td>
+                                        <td>Tokyo</td>
+                                        <td>33</td>
+                                        <td>NO</td>
+                                        <td>
+                                            <button class="btn btn-primary"><i class="fas fa-info-circle "></i> Info</button>
+                                            <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#liberacionModal" type="button"><i class="fas fa-user-check "></i> Liberar</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Brielle Williamson</td>
+                                        <td>Integration Specialist</td>
+                                        <td>New York</td>
+                                        <td>61</td>
+                                        <td>SI</td>
+                                        <td><button class="btn btn-primary"><i class="fas fa-info-circle "></i> Info</button>
+                                            <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#liberacionModal" type="button"><i class="fas fa-user-check "></i> Liberar</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Herrod Chandler</td>
+                                        <td>Sales Assistant</td>
+                                        <td>San Francisco</td>
+                                        <td>59</td>
+                                        <td>SI</td>
+                                        <td>
+                                            <button class="btn btn-primary"><i class="fas fa-info-circle "></i> Info</button>
+                                            <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#liberacionModal" type="button"><i class="fas fa-user-check "></i> Liberar</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Rhona Davidson</td>
+                                        <td>Integration Specialist</td>
+                                        <td>Tokyo</td>
+                                        <td>55</td>
+                                        <td>NO</td>
+                                        <td>
+                                            <button class="btn btn-primary"><i class="fas fa-info-circle "></i> Info</button>
+                                            <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#liberacionModal" type="button"><i class="fas fa-user-check "></i> Liberar</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Colleen Hurst</td>
+                                        <td>Javascript Developer</td>
+                                        <td>San Francisco</td>
+                                        <td>39</td>
+                                        <td>SI</td>
+                                        <td>
+                                            <button class="btn btn-primary"><i class="fas fa-info-circle "></i> Info</button>
+                                            <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#liberacionModal" type="button"><i class="fas fa-user-check "></i> Liberar</button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>Tatyana Fitzpatrick</td>
+                                        <td>Regional Director</td>
+                                        <td>London</td>
+                                        <td>19</td>
+                                        <td>SI</td>
+                                        <td>
+                                            <button class="btn btn-primary"><i class="fas fa-info-circle "></i> Info</button>
+                                            <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#liberacionModal" type="button"><i class="fas fa-user-check "></i> Liberar</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Nombre completo</th>
+                                        <th>Posición</th>
+                                        <th>Escuela</th>
+                                        <th>Semestre</th>
+                                        <th>Concluyó sevicio</th>
+                                        <th>Opciones</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Your Website 2021</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+    <script src="js/datatables-simple-demo.js"></script>
+</body>
+
+</html>
