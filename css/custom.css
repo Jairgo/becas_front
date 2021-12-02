@@ -2,3 +2,10 @@
     padding-top: 56px;
     min-height: calc(100vh - 56px);
 }
+.form-label {
+    font-weight: bold;
+}
+.obligatorio{
+    color: red;
+    font-weight: bold;
+}
