@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html class="bg-forms" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dashboard - SB Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+    <link href="css/custom.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+        crossorigin="anonymous"></script>
+</head>
+
+<body class="sb-nav-fixed bg-forms">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="index.html">Start Bootstrap</a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!">
+            <i class="fas fa-bars"></i>
+        </button>
+        <!-- Navbar Search-->
+        <form class="
+          d-none d-md-inline-block
+          form-inline
+          ms-auto
+          me-0 me-md-3
+          my-2 my-md-0
+        ">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..."
+                    aria-describedby="btnNavbarSearch" />
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#!">Settings</a></li>
+                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                    <li>
+                        <hr class="dropdown-divider" />
+                    </li>
+                    <li><a class="dropdown-item" href="#!">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">Core</div>
+                        <a class="nav-link" href="index.html">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                            Dashboard
+                        </a>
+                        <div class="sb-sidenav-menu-heading">Interface</div>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-columns"></i>
+                            </div>
+                            Layouts
+                            <div class="sb-sidenav-collapse-arrow">
+                                <i class="fas fa-angle-down"></i>
+                            </div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="layout-static.html">Static Navigation</a>
+                                <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                            </nav>
+                        </div>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
+                            aria-expanded="false" aria-controls="collapsePages">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            Pages
+                            <div class="sb-sidenav-collapse-arrow">
+                                <i class="fas fa-angle-down"></i>
+                            </div>
+                        </a>
+                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                    data-bs-target="#pagesCollapseAuth" aria-expanded="false"
+                                    aria-controls="pagesCollapseAuth">
+                                    Authentication
+                                    <div class="sb-sidenav-collapse-arrow">
+                                        <i class="fas fa-angle-down"></i>
+                                    </div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne"
+                                    data-bs-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="login.html">Login</a>
+                                        <a class="nav-link" href="register.html">Register</a>
+                                        <a class="nav-link" href="password.html">Forgot Password</a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                    data-bs-target="#pagesCollapseError" aria-expanded="false"
+                                    aria-controls="pagesCollapseError">
+                                    Error
+                                    <div class="sb-sidenav-collapse-arrow">
+                                        <i class="fas fa-angle-down"></i>
+                                    </div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne"
+                                    data-bs-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="401.html">401 Page</a>
+                                        <a class="nav-link" href="404.html">404 Page</a>
+                                        <a class="nav-link" href="500.html">500 Page</a>
+                                    </nav>
+                                </div>
+                            </nav>
+                        </div>
+                        <div class="sb-sidenav-menu-heading">Addons</div>
+                        <a class="nav-link" href="charts.html">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-chart-area"></i>
+                            </div>
+                            Charts
+                        </a>
+                        <a class="nav-link" href="tables.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                            Tables
+                        </a>
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">Logged in as:</div>
+                    Start Bootstrap
+                </div>
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            <main class="bg-forms">
+                <form>
+                    <div class ="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-5">
+                                <div class="card border-white bg-dark2 rounded-lg mt-5">
+                                    <div class="card-header">
+                                        <h3 class="text-center color-white font-weight-light my-4">Reporte Final de Servicio</h3>
+                                        <h5 class="text-center color-white">Bienvenido Guillermo</h5>                                  
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="tab">
+                                        <div class="col-md-12 ">
+                                            <input class="form-control" style="font-family: Arial, FontAwesome"
+                                            type="text" name="name" placeholder="&#xf2bd; Nombre Completo"
+                                            required value="Guillermo Ramirez Tenorio" />
+                                        </div>
+                                        <div class="col-md-12 mt-4">
+                                            <input class="form-control" style="font-family: Arial, FontAwesome"
+                                                type="email" name="email" placeholder="&#Xf0e0; Correo Institucional"
+                                                required value="guillermo.ramirezt15@anahuac.mx" />
+                                        </div>
+                                        <div class="row justify-content-between text-left">
+                                            <div class="form-group col-sm-6 flex-column d-flex mt-4 ">
+                                                <input class="form-control" type="text"
+                                                    style="font-family: Arial, FontAwesome"
+                                                    placeholder="&#xf095; Número Celular" required value="9511697595" />
+                                            </div>
+                                            <div class="form-group col-sm-6 flex-column d-flex mt-4 ">
+                                                <input class="form-control" type="text"
+                                                    style="font-family: Arial, FontAwesome" placeholder="&#XF2BB; ID"
+                                                    required value="00320815" />
+                                            </div>
+                                        </div>
+                                        <div class="row justify-content-between text-left">
+                                            <div class="col-md-9">
+                                                <select class="form-select mt-3" required>
+                                                    <option  disabled value="">Carrera</option>
+                                                    <option selected value="jweb">
+                                                        Ing. en Sitemas y Tecnologías de la información
+                                                    </option>
+                                                    <option value="sweb">
+                                                        Ing. en Informática y Negocios Digitales
+                                                    </option>
+                                                    <option value="pmanager">Ing. Mecatrónica</option>
+                                                    <option value="">
+                                                        Ing. Industrial para la Dirección
+                                                    </option>
+                                                    <option value="">Ing. Civil</option>
+                                                    <option value="">Psicología</option>
+                                                    <option value="">
+                                                        Diseño de Modas e Innovación
+                                                    </option>
+                                                    <option value="">Comunicación</option>
+                                                    <option value="">Diseño Multimedia</option>
+                                                    <option value="">
+                                                        Administración Pública y Gobierno
+                                                    </option>
+                                                    <option value="">Derecho</option>
+                                                    <option value="">Medico Cirujano</option>
+                                                    <option value="">Gastronomia</option>
+                                                    <option value="">Turismo Internacional</option>
+                                                    <option value="">Administración Turística</option>
+                                                    <option value="">Negocios Internacionales</option>
+                                                    <option value="">
+                                                        Finanzas y Contaduria Pública
+                                                    </option>
+                                                    <option value="">Mercadotecnia Estratégica</option>
+                                                    <option value="">
+                                                        Administración y Dirección de Empresas
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div class="mt-3 col-md-3">
+                                                <input class="form-control" style="font-family: Arial, FontAwesome"
+                                                    type="number" name="percentage" placeholder="&#xf295; Beca"
+                                                    required value="30" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mt-3">
+                                            <label class="mb-3 mr-1 color-white" for="gender">Tipo de beca:
+                                            </label>
+
+                                            <input type="radio" class="btn-check" name="gender" id="academica"
+                                                autocomplete="off" required/>
+                                            <label class="btn btn-sm btn-outline-secondary color-white"
+                                                for="academica" >Académica</label>
+
+                                            <input type="radio" class="btn-check" name="gender" id="deportiva"
+                                                autocomplete="off" required />
+                                            <label class="btn btn-sm btn-outline-secondary color-white"
+                                                for="deportiva">Deportiva</label>
+
+                                            <input type="radio" class="btn-check" name="gender" id="cultural"
+                                                autocomplete="off" required />
+                                            <label class="btn btn-sm btn-outline-secondary color-white"
+                                                for="cultural">Cultural</label>
+                                            <input type="radio" class="btn-check" name="gender" id="sep"
+                                                autocomplete="off" required />
+                                            <label class="btn btn-sm btn-outline-secondary color-white"
+                                                for="sep">SEP</label>
+                                        </div>
+                                    </div>
+                                    <div class="tab">
+                                        <div class="form-group">
+                                            <label for="TextArea"><b class="color-white">¿Qué tipo de trabajo realizaste como servicio becario en el periodo?
+                                            </b>
+                                            </label>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="asesorias" id="horas" value="hor">
+                                                <label class="form-check-label" for="exampleRadios1">
+                                                 <b class="color-white">Cumplimiento con horas en días establecidos</b>
+                                                </label>
+                                              </div>
+                                              <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="asesorias" id="proyecto" value="pro">
+                                                <label class="form-check-label" for="exampleRadios2">
+                                                 <b class="color-white">Realización de proyecto institucional</b>
+                                                </label>
+                                              </div>
+                                              <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="asesorias" id="proyectoexterno" value="ext">
+                                                <label class="form-check-label" for="exampleRadios2">
+                                                 <b class="color-white">Realización de proyecto externo</b>
+                                                </label>
+                                              </div>
+                                              <br>
+                                              <div class="form-group">
+                                                <label for="TextArea"><b class="color-white">¿Concluiste con todas las horas de tu servicio de becario en el actual periodo?
+                                                </b>
+                                                </label>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="si" id="Opcion1" value="Si">
+                                                    <label class="form-check-label" for="exampleRadios1">
+                                                     <b class="color-white">Si</b>
+                                                    </label>
+                                                  </div>
+                                                  <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="no" id="Opcion2" value="No">
+                                                    <label class="form-check-label" for="exampleRadios2">
+                                                     <b class="color-white">No</b>
+                                                    </label>
+                                                  </div>
+                                                  <br>
+                                                    <label for="TextArea"><b class="color-white">Sí tu respuesta anterior fue no, ¿cuál fue la razón?
+                                                    </b>
+                                                    </label>
+                                                    <textarea class="form-control" id="exampleFormControlTextarea2" rows="3"></textarea>
+                                                
+
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
+                                    <div class="tab">
+                                        <div class="form-group">
+                                            <label for="TextArea"><b class="color-white">En caso de no concluir tus horas de servicio becario. ¿ llegaste a un acuerdo con tu jefe becario?
+                                            </b>
+                                            </label>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="acuerdo2" id="Opcion3" value="Si">
+                                                <label class="form-check-label" for="exampleRadios1">
+                                                 <b class="color-white">Si</b>
+                                                </label>
+                                              </div>
+                                              <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="acuerdo2" id="Opcion4" value="No">
+                                                <label class="form-check-label" for="exampleRadios2">
+                                                 <b class="color-white">No</b>
+                                                </label>
+                                              </div>
+                                            </div>
+                                            <br>
+                                            <label for="TextArea"><b class="color-white">¿Cuál es el acuerdo?
+                                            </b>
+                                            </label>
+                                            <textarea class="form-control" id="exampleFormControlTextarea2" rows="3"></textarea>
+                                    </div>
+                                    <div class="tab">
+                                        <label class="color-white">¿Qué % de las metas/proyectos parciales lleva ?</label>
+                                        <div class="form-check form-check-inline">
+                                            <select class="custom-select">
+                                                <option selected disabled value="">%</option>
+                                                <option value="5">5%</option>
+                                                <option value="10">10%</option>
+                                                <option value="15">15%</option>
+                                                <option value="20">20%</option>
+                                                <option value="25">25%</option>
+                                                <option value="30">30%</option>
+                                                <option value="35">35%</option>
+                                                <option value="40">40%</option>
+                                                <option value="45">45%</option>
+                                                <option value="50">50%</option>
+                                                <option value="55">55%</option>
+                                                <option value="60">60%</option>
+                                                <option value="65">65%</option>
+                                                <option value="70">70%</option>
+                                                <option value="75">75%</option>
+                                                <option value="80">80%</option>
+                                                <option value="85">85%</option>
+                                                <option value="90">90%</option>
+                                                <option value="95">95%</option>
+                                                <option value="100">100%</option>
+                                            </select>
+                                        </div>
+                                        <br>
+                                        <label class="color-white">¿Cuántas horas has dedicado al servicio? </label>
+                                        <div class="form-check form-check-inline">
+                                            
+                                            <select class="custom-select">
+                                                <option selected disabled value="">Horas</option>
+                                                <option value="5">5 hrs</option>
+                                                <option value="10">10 hrs</option>
+                                                <option value="15">15 hrs</option>
+                                                <option value="20">20 hrs</option>
+                                                <option value="25">25 hrs</option>
+                                                <option value="30">30 hrs</option>
+                                                <option value="35">35 hrs</option>
+                                                <option value="40">40 hrs</option>
+                                                <option value="45">45 hrs</option>
+                                                <option value="50">50 hrs</option>
+                                                <option value="55">55 hrs</option>
+                                                <option value="60">60 hrs</option>
+                                                <option value="65">65 hrs</option>
+                                                <option value="70">70 hrs</option>
+                                                <option value="75">75 hrs</option>
+                                                <option value="80">80 hrs</option>
+                                                <option value="85">85 hrs</option>
+                                                <option value="90">90 hrs</option>
+                                                <option value="95">95 hrs</option>
+                                                <option value="100">100 hrs</option>
+                                            </select>
+
+                                            
+                                        </div>
+                                       <br>
+                                        <label class="color-white">¿Qué % de objetivos especificos lleva ?</label>
+                                        <div class="form-check form-check-inline">
+                                            <select class="custom-select">
+                                                <option selected disabled value="">%</option>
+                                                <option value="5">5%</option>
+                                                <option value="10">10%</option>
+                                                <option value="15">15%</option>
+                                                <option value="20">20%</option>
+                                                <option value="25">25%</option>
+                                                <option value="30">30%</option>
+                                                <option value="35">35%</option>
+                                                <option value="40">40%</option>
+                                                <option value="45">45%</option>
+                                                <option value="50">50%</option>
+                                                <option value="55">55%</option>
+                                                <option value="60">60%</option>
+                                                <option value="65">65%</option>
+                                                <option value="70">70%</option>
+                                                <option value="75">75%</option>
+                                                <option value="80">80%</option>
+                                                <option value="85">85%</option>
+                                                <option value="90">90%</option>
+                                                <option value="95">95%</option>
+                                                <option value="100">100%</option>
+                                            </select>
+                                        </div>
+                                       <br>
+                                        <label class="color-white">¿Qué % de cumplimiento lleva con el proyecto final ?</label>
+                                        <div class="form-check form-check-inline">
+                                            <select class="custom-select">
+                                                <option selected disabled value="">%</option>
+                                                <option value="5">5%</option>
+                                                <option value="10">10%</option>
+                                                <option value="15">15%</option>
+                                                <option value="20">20%</option>
+                                                <option value="25">25%</option>
+                                                <option value="30">30%</option>
+                                                <option value="35">35%</option>
+                                                <option value="40">40%</option>
+                                                <option value="45">45%</option>
+                                                <option value="50">50%</option>
+                                                <option value="55">55%</option>
+                                                <option value="60">60%</option>
+                                                <option value="65">65%</option>
+                                                <option value="70">70%</option>
+                                                <option value="75">75%</option>
+                                                <option value="80">80%</option>
+                                                <option value="85">85%</option>
+                                                <option value="90">90%</option>
+                                                <option value="95">95%</option>
+                                                <option value="100">100%</option>
+                                            </select>
+                                        </div>
+                                        <br>
+                                        <br>
+                                            <label for="formFileSm" class="form-label color-white">Sube evidencia de la realización y liberación de tu servicio becario</label>
+<input class="form-control form-control-sm" id="formFileSm" type="file" />
+                                        
+                                        
+                                    </div>
+                                    <div class="tab">
+                                        <h4 class=" text-center color-white">Servicio de becario por :</h4>
+                                        <h5 class=" text-center color-white">H O R A S</h5>
+                                            <label for="TextArea"><b class="color-white">¿Cuáles fueron tus actividades de servicio de Becario?
+                                            </b>
+                                            </label>
+                                            <textarea class="form-control" id="exampleFormControlTextarea2" rows="2"></textarea>
+                                            <br>
+                                            <label for="TextArea"><b class="color-white">Se logró dar o desarrollar un valor agregado a tu trabajo becario, en qué medida
+
+                                            </b>
+                                            </label>
+                                            <textarea class="form-control" id="exampleFormControlTextarea2" rows="2"></textarea>
+                                            <br>
+                                            <label for="TextArea"><b class="color-white">¿En qué medida desarrollaste las competencias definidas para la realización de tu trabajo?
+
+                                            </b>
+                                            </label>
+                                            <textarea class="form-control" id="exampleFormControlTextarea2" rows="2"></textarea>
+                                    </div>
+                                    <div class="tab">
+                                        <h4 class=" text-center color-white">Servicio de becario por :</h4>
+                                        <h5 class=" text-center color-white">P R O Y E C T O </h5>
+                                            <label for="TextArea"><b class="color-white">¿Cuáles fueron tus actividades de servicio de Becario?
+                                            </b>
+                                            </label>
+                                            <textarea class="form-control" id="exampleFormControlTextarea2" rows="2"></textarea>
+                                            <br>
+                                            <label for="TextArea"><b class="color-white">Se logró dar o desarrollar un valor agregado a tu trabajo becario, en qué medida
+
+                                            </b>
+                                            </label>
+                                            <textarea class="form-control" id="exampleFormControlTextarea2" rows="2"></textarea>
+                                            <br>
+                                            <div class="col-md-12 mt-3">
+                                                <label class="mb-3 mr-1 color-white" for="gender">¿En qué medida desarrollaste las competencias definidas para la realización de tu trabajo?</label>
+                                                <input type="radio" class="btn-check" name="Comunicacion" id="excelente" autocomplete="off" required>
+                                                <label class="btn btn-sm btn-outline-secondary color-white" for="excelente">Adquirida</label>
+                                                <input type="radio" class="btn-check" name="Comunicacion" id="Buena" autocomplete="off" required>
+                                                <label class="btn btn-sm btn-outline-secondary color-white" for="Buena">Parcialmente adquirida</label>
+                                                <input type="radio" class="btn-check" name="Comunicacion" id="Normal" autocomplete="off" required>
+                                                <label class="btn btn-sm btn-outline-secondary color-white" for="Normal">Poco adquirida</label>
+                                                <input type="radio" class="btn-check" name="Comunicacion" id="mala" autocomplete="off" required>
+                                                <label class="btn btn-sm btn-outline-secondary color-white" for="mala">No adquirida</label>
+                                                
+                                                                                                
+                                                </div>
+                                    
+                                    </div>
+                                    <div class="tab">
+                                        <div class="form-group">
+                                            <label for="TextArea"><b class="color-white">¿Se cumplió con el resultado o producto final?</b>
+                                            </label>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="asesorias" id="producsi" value="Si">
+                                                <label class="form-check-label" for="exampleRadios1">
+                                                 <b class="color-white">Si</b>
+                                                </label>
+                                              </div>
+                                              <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="asesorias" id="producno" value="No">
+                                                <label class="form-check-label" for="exampleRadios2">
+                                                 <b class="color-white">No</b>
+                                                </label>
+                                              </div>
+                                              <label for="TextArea"><b class="color-white">Si tu respuesta fue no, ¿en qué porcentaje no se cumplió y por qué?
+
+                                            </b>
+                                            </label>
+                                            <textarea class="form-control" id="exampleFormControlTextarea2" rows="2"></textarea>
+                                            <br>
+                                            <label for="TextArea"><b class="color-white">Si no terminaste tu proyecto final se generó algún acuerdo para la culminación del proyecto, ¿cuál?
+
+                                            </b>
+                                            </label>
+                                            <textarea class="form-control" id="exampleFormControlTextarea2" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="tab">
+                                        <h5 class=" text-center color-white">G E N E R A L</h5>
+                                        <h6 class="color-white">Teniendo en mente este periodo académico ¿Qué tan satisfecho te has sentido en los siguientes aspectos?</h6>
+                                        <br>
+                                        
+                                            <b class="color-white">				
+                                                El proyecto y tareas que me fueron asignados</b>
+                                                <br>
+                                            <div class="form-check ">
+                                                <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1" name="1">
+                                                <label class="form-check-label color-white" for="inlineChec">Muy Satisfecho</label>
+                                              </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" id="inlineCheckbox2" value="option2" name="1">
+                                                    <label class="form-check-label color-white" for="inlineCheck">Satisfecho</label>
+                                                 </div>
+                                                 <div class="form-check ">
+                                                    <input class="form-check-input" type="radio" id="inlineCheckbox3" value="option3" name="1">
+                                                    <label class="form-check-label color-white" for="inlineCheckb">Insatisfecho</label>
+                                                  </div>
+                                                  <div class="form-check">
+                                                    <input class="form-check-input" type="radio" id="inlineCheckbox4" value="option4" name="1">
+                                                    <label class="form-check-label color-white" for="inlineCheckbo">Muy insatisfecho</label>
+                                                  </div>
+                                                  <br>
+                                                  <b class="color-white">				
+                                                    La preocupación que mi jefe de servicio de becario mostró por mi bienestar académico</b>
+                                                    <br>
+                                                <div class="form-check ">
+                                                    <input class="form-check-input" type="radio" id="inlineCheckbox5" value="option5" name="2">
+                                                    <label class="form-check-label color-white" for="inlineCheckbox5">Muy Satisfecho</label>
+                                                  </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" id="inlineCheckbox5" value="option6"name="2">
+                                                        <label class="form-check-label color-white" for="inlineCheckbox5">Satisfecho</label>
+                                                     </div>
+                                                     <div class="form-check ">
+                                                        <input class="form-check-input" type="radio" id="inlineCheckbox5" value="option7"name="2">
+                                                        <label class="form-check-label color-white" for="inlineCheckbox5">Insatisfecho</label>
+                                                      </div>
+                                                      <div class="form-check">
+                                                        <input class="form-check-input" type="radio" id="inlineCheckbox5" value="option8"name="2">
+                                                        <label class="form-check-label color-white" for="inlineCheckbox5">Muy insatisfecho</label>
+                                                      </div>
+                                                      <br>
+                                                      <b class="color-white">				
+                                                        El trato que mi jefe de servicio me brindó</b>
+                                                        <br>
+                                                    <div class="form-check ">
+                                                        <input class="form-check-input" type="radio" id="inlineCheckbox6" value="option9"name="3">
+                                                        <label class="form-check-label color-white" for="inlineCheckbox6">Muy Satisfecho</label>
+                                                      </div>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" id="inlineCheckbox7" value="option10"name="3">
+                                                            <label class="form-check-label color-white" for="inlineCheckbox7">Satisfecho</label>
+                                                         </div>
+                                                         <div class="form-check ">
+                                                            <input class="form-check-input" type="radio" id="inlineCheckbox8" value="option11"name="3">
+                                                            <label class="form-check-label color-white" for="inlineCheckbox8">Insatisfecho</label>
+                                                          </div>
+                                                          <div class="form-check">
+                                                            <input class="form-check-input" type="radio" id="inlineCheckbox9" value="option12"name="3">
+                                                            <label class="form-check-label color-white" for="inlineCheckbox9">Muy insatisfecho</label>
+                                                          </div>
+                                                          <br>
+                                                          <b class="color-white">				
+                                                            El área en el que realicé mi servicio de becario</b>
+                                                            <br>
+                                                        <div class="form-check ">
+                                                            <input class="form-check-input" type="radio" id="inlineCheckbox10" value="option13"name="4">
+                                                            <label class="form-check-label color-white" for="inlineCheckbox10">Muy Satisfecho</label>
+                                                          </div>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" id="inlineCheckbox11" value="option14"name="4">
+                                                                <label class="form-check-label color-white" for="inlineCheckbox11">Satisfecho</label>
+                                                             </div>
+                                                             <div class="form-check ">
+                                                                <input class="form-check-input" type="radio" id="inlineCheckbox12" value="option15"name="4">
+                                                                <label class="form-check-label color-white" for="inlineCheckbox12">Insatisfecho</label>
+                                                              </div>
+                                                              <div class="form-check">
+                                                                <input class="form-check-input" type="radio" id="inlineCheckbox13" value="option16"name="4">
+                                                                <label class="form-check-label color-white" for="inlineCheckbox13">Muy insatisfecho</label>
+                                                              </div>
+                                </div>
+                                <div class="tab">
+                                    <h5 class=" text-center color-white">G E N E R A L</h5>
+                                        <h6 class="color-white">Teniendo en mente el actual periodo académico ¿Cuál sería la probabilidad de que vuelvas a realizar las siguientes acciones en tu servicio de becario para el siguiente semestre, si tuvieras la completa libertad de elección?</h6>
+                                        <br>
+                                        <b class="color-white">				
+                                            Repetir mi servicio de becario con el mismo jefe.</b>
+                                            <br>
+                                        <div class="form-check ">
+                                            <input class="form-check-input" type="radio" id="inlineCheckbox14" value="option17"name="5">
+                                            <label class="form-check-label color-white" for="inlineCheckbox14">Muy Probable</label>
+                                          </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" id="inlineCheckbox15" value="option18"name="5">
+                                                <label class="form-check-label color-white" for="inlineCheckbox15">Probable</label>
+                                             </div>
+                                             <div class="form-check ">
+                                                <input class="form-check-input" type="radio" id="inlineCheckbox16" value="option19"name="5">
+                                                <label class="form-check-label color-white" for="inlineCheckbox16">Poco Probable</label>
+                                              </div>
+                                              <div class="form-check">
+                                                <input class="form-check-input" type="radio" id="inlineCheckbox17" value="option20"name="5">
+                                                <label class="form-check-label color-white" for="inlineCheckbox17">Nada probable </label>
+                                              </div>
+                                              <br>
+                                        <b class="color-white">				
+                                            Repetir mi servicio de becario en la misma área.</b>
+                                            <br>
+                                        <div class="form-check ">
+                                            <input class="form-check-input" type="radio" id="inlineCheckbox18" value="option19"name="6">
+                                            <label class="form-check-label color-white" for="inlineCheckbox18">Muy Probable</label>
+                                          </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" id="inlineCheckbox19" value="option20"name="6">
+                                                <label class="form-check-label color-white" for="inlineCheckbox19">Probable</label>
+                                             </div>
+                                             <div class="form-check ">
+                                                <input class="form-check-input" type="radio" id="inlineCheckbox20" value="option21"name="6">
+                                                <label class="form-check-label color-white" for="inlineCheckbox20">Poco Probable</label>
+                                              </div>
+                                              <div class="form-check">
+                                                <input class="form-check-input" type="radio" id="inlineCheckbox21" value="option22"name="6">
+                                                <label class="form-check-label color-white" for="inlineCheckbox21">Nada probable </label>
+                                              </div>
+                                              <br>
+                                        <b class="color-white">				
+                                            Realizar las mismas tareas asignadas.</b>
+                                            <br>
+                                        <div class="form-check ">
+                                            <input class="form-check-input" type="radio" id="inlineCheckbox22" value="option23"name="7">
+                                            <label class="form-check-label color-white" for="inlineCheckbox22">Muy Probable</label>
+                                          </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" id="inlineCheckbox23" value="option24"name="7">
+                                                <label class="form-check-label color-white" for="inlineCheckbox23">Probable</label>
+                                             </div>
+                                             <div class="form-check ">
+                                                <input class="form-check-input" type="radio" id="inlineCheckbox24" value="option25"name="7">
+                                                <label class="form-check-label color-white" for="inlineCheckbox24">Poco Probable</label>
+                                              </div>
+                                              <div class="form-check">
+                                                <input class="form-check-input" type="radio" id="inlineCheckbox25" value="option26"name="7">
+                                                <label class="form-check-label color-white" for="inlineCheckbox25">Nada probable </label>
+                                              </div>
+                                            
+                                              
+
+
+                                </div>
+                                <div class="tab">
+                                    <b class="color-white"> Al momento, el jefe becario opta por...</b>
+                                    <div class="form-check ">
+                                        <input class="form-check-input" type="radio" id="inlineCheckbox22" value="option27" name="8">
+                                        <label class="form-check-label color-white" for="inlineCheckbox22">Conservar el % de beca</label>
+                                      </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" id="inlineCheckbox23" value="option28"name="8">
+                                            <label class="form-check-label color-white" for="inlineCheckbox23">Disminución del % de beca</label>
+                                         </div>
+                                         <div class="form-check ">
+                                            <input class="form-check-input" type="radio" id="inlineCheckbox24" value="option29"name="8">
+                                            <label class="form-check-label color-white" for="inlineCheckbox24">Pérdida de beca</label>
+                                          </div>
+
+
+
+                                </div>
+                                    
+                                    <div style="overflow:auto;">
+                                        <div style="float:right;">
+                                          <button class="mt-3" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                                          <button class="mt-3" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                                        </div>
+                                      </div>
+                                      <!-- Circles which indicates the steps of the form: -->
+                                      <div style="text-align:center;margin-top:40px;">
+                                        <span class="step"></span>
+                                        <span class="step"></span>
+                                        <span class="step"></span>
+                                        <span class="step"></span>
+                                        <span class="step"></span>
+                                        <span class="step"></span>
+                                        <span class="step"></span>
+                                        <span class="step"></span>
+                                        <span class="step"></span>
+                                        
+                                     
+                                      </div>
+                                </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </form>
+            </main>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="assets/demo/chart-area-demo.js"></script>
+    <script src="assets/demo/chart-bar-demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+    <script src="js/datatables-simple-demo.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
